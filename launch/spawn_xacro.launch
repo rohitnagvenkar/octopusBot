@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <arg name="x" default="0.0" />
+    <arg name="y" default="0.0" />
+    <arg name="z" default="0.0" />
+    <arg name="roll" default="0.0" />
+    <arg name="pitch" default="0.0" />
+    <arg name="yaw" default="" />
+    <arg name="robot_name" default="" />
+    <arg name="xacro_robot_file" default="10" />
+    <arg name="number_of_elements" default="10" />
+    <param name="robot_description" command="$(find xacro)/xacro '' prefix:=$(arg number_of_elements)"/>
+    <node name="urdf_spawner_$(arg robot_name)" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen">
+    </launch>
